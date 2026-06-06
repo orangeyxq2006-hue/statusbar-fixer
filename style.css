@@ -1,0 +1,301 @@
+/* StatusBar Fixer - 状态栏修复器样式 */
+
+#sbf-fix-btn-wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+#sbf-fix-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: var(--SmartThemeBodyColor, #ccc);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px 8px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+#sbf-fix-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+}
+
+#sbf-fix-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#sbf-fix-btn.sbf-btn-alert {
+    border-color: #e8a045;
+    box-shadow: 0 0 6px rgba(232, 160, 69, 0.5);
+    animation: sbf-pulse 1.5s infinite;
+}
+
+@keyframes sbf-pulse {
+    0%, 100% { box-shadow: 0 0 6px rgba(232, 160, 69, 0.5); }
+    50% { box-shadow: 0 0 12px rgba(232, 160, 69, 0.8); }
+}
+
+.sbf-settings-panel {
+    padding: 12px;
+    color: var(--SmartThemeBodyColor, #ccc);
+}
+
+.sbf-settings-panel h3 {
+    font-size: 14px;
+    margin: 0 0 14px 0;
+    color: var(--SmartThemeBodyColor, #ddd);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 8px;
+}
+
+.sbf-section {
+    margin-bottom: 14px;
+}
+
+.sbf-section label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--SmartThemeBodyColor, #ccc);
+    opacity: 0.85;
+}
+
+.sbf-section input[type="text"],
+.sbf-section input[type="password"],
+.sbf-section textarea {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: var(--SmartThemeBodyColor, #ccc);
+    font-size: 12px;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+}
+
+.sbf-section input:focus,
+.sbf-section textarea:focus {
+    outline: none;
+    border-color: rgba(255,255,255,0.35);
+}
+
+.sbf-section small {
+    display: block;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+.sbf-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sbf-toggle-label {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: normal !important;
+}
+
+.sbf-toggle-label input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    accent-color: #7eb8a4;
+}
+
+.sbf-btn {
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 7px 16px;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.sbf-btn-confirm {
+    background: #4a8a6f;
+    color: #fff;
+}
+
+.sbf-btn-confirm:hover {
+    background: #5aa080;
+}
+
+.sbf-btn-cancel {
+    background: rgba(255,255,255,0.1);
+    color: var(--SmartThemeBodyColor, #ccc);
+}
+
+.sbf-btn-cancel:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+#sbf-save-btn {
+    width: 100%;
+    margin-top: 4px;
+}
+
+.sbf-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sbf-dialog {
+    background: var(--SmartThemeBlurTintColor, #1a1a2e);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.sbf-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--SmartThemeBodyColor, #ddd);
+    flex-shrink: 0;
+}
+
+.sbf-close-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.sbf-close-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.sbf-dialog-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    padding: 14px;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.sbf-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.sbf-panel-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.sbf-content {
+    flex: 1;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--SmartThemeBodyColor, #ccc);
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 52vh;
+}
+
+.sbf-original { border-color: rgba(200, 80, 80, 0.3); }
+.sbf-fixed { border-color: rgba(80, 180, 120, 0.3); }
+
+.sbf-arrow {
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 20px;
+    flex-shrink: 0;
+    padding-top: 22px;
+}
+
+.sbf-dialog-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding: 12px 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+}
+
+.sbf-toast {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: #ddd;
+    font-size: 13px;
+    padding: 10px 18px;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+.sbf-toast-show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.sbf-toast-success { border-color: rgba(80, 180, 120, 0.5); }
+.sbf-toast-error { border-color: rgba(200, 80, 80, 0.5); }
+.sbf-toast-warning { border-color: rgba(232, 160, 69, 0.5); }
+.sbf-toast-info { border-color: rgba(80, 140, 200, 0.5); }
+
+@media (max-width: 600px) {
+    .sbf-dialog { max-height: 92vh; border-radius: 10px; }
+    .sbf-dialog-body { flex-direction: column; overflow-y: auto; }
+    .sbf-arrow { transform: rotate(90deg); padding-top: 0; justify-content: center; }
+    .sbf-content { max-height: 30vh; }
+}
