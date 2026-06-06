@@ -1,0 +1,94 @@
+# 状态栏修复器 / StatusBar Fixer
+
+SillyTavern 扩展插件，自动检测并修复 AI 回复中损坏或缺失的状态栏格式。
+
+---
+
+## 安装方法
+
+1. 将整个 `statusbar-fixer` 文件夹复制到：
+   ```
+   SillyTavern/public/extensions/statusbar-fixer/
+   ```
+   
+   最终结构：
+   ```
+   extensions/
+   └── statusbar-fixer/
+       ├── manifest.json
+       ├── index.js
+       ├── style.css
+       └── README.md
+   ```
+
+2. 重启 SillyTavern（或刷新页面）
+
+3. 进入 **扩展管理**（Extensions），找到「状态栏修复器」并启用
+
+---
+
+## 首次配置
+
+打开扩展设置面板，填写以下内容：
+
+### 必填
+| 项目 | 说明 |
+|------|------|
+| API Endpoint | 你的 API 地址，支持任何 OpenAI 格式兼容接口 |
+| API Key | 对应的 API Key |
+| 模型名称 | 如 `gpt-4o`、`gemini-2.0-flash`、`deepseek-chat` |
+| 格式模板 | **把你预设或世界书里的状态栏格式定义完整粘贴进来** |
+
+### 可选
+| 项目 | 说明 |
+|------|------|
+| 世界书关键词 | 插件会自动从当前激活的世界书中找到匹配的 entry 作为补充格式参考 |
+| 需要检测的块名 | 默认检测 `Snapshot, status, horae, horaeevent, Episode, RandomTheater` |
+
+---
+
+## 使用方法
+
+### 手动触发（默认）
+点击输入框旁边的 **🔧** 按钮，插件会：
+1. 读取最后一条 AI 回复
+2. 检测结构问题（块缺失 / HTML 标签不匹配）
+3. 调用你的 API 修复
+4. 弹出预览对话框，显示修复前后对比
+5. 点击「确认替换」完成替换
+
+### 自动检测
+在设置中开启「每次AI回复后自动检测」，有问题时🔧按钮会橙色发光提示。
+
+---
+
+## 常见 API 配置示例
+
+### Gemini（OpenAI 兼容模式）
+```
+Endpoint: https://generativelanguage.googleapis.com/v1beta/openai/chat/completions
+Key: 你的 Gemini API Key
+Model: gemini-2.0-flash
+```
+
+### DeepSeek
+```
+Endpoint: https://api.deepseek.com/v1/chat/completions
+Key: 你的 DeepSeek API Key
+Model: deepseek-chat
+```
+
+### 本地 Ollama
+```
+Endpoint: http://localhost:11434/v1/chat/completions
+Key: ollama（随便填）
+Model: qwen2.5:7b
+```
+
+---
+
+## 注意事项
+
+- 「直接替换」模式下不会弹出预览，修复后立即写入，建议熟悉后再开启
+- 「强制修复」会在未检测到问题时也调用 API，用于手动触发完整重新生成状态栏
+- 格式模板粘贴越完整，修复质量越高
