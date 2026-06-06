@@ -1,6 +1,6 @@
-import { getContext, extension_settings, saveSettingsDebounced } from '../../../extensions.js';
-import { substituteParams, chat, saveChatConditional } from '../../../../script.js';
-import { getSortedEntries } from '../../../world-info.js';
+import { getContext, extension_settings, saveSettingsDebounced } from '../../extensions.js';
+import { chat, saveChatConditional } from '../../../script.js';
+import { getSortedEntries } from '../../world-info.js';
 
 const EXT_NAME = 'statusbar-fixer';
 
